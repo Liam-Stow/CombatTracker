@@ -1,16 +1,19 @@
 var mapImage;
+let gazer;
 
 function preload() {
   mapImage = loadImage('resources/AirBoat2.png');
+  gazer = new Token('resources/gazer.png');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(100,100,100);
-  image(mapImage, 50, 100);
   imageMode(CENTER);
 }
 
 function draw() {
-  // put drawing code here
+  background(100, 100, 100);
+  image(mapImage, 200, 200);
+  gazer.update();
+  gazer.render();
 }
