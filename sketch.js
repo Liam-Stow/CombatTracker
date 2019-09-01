@@ -6,29 +6,27 @@ function preload() {
   mapImage = loadImage('resources/AirBoat2.png');
   tokens.push(new Token('resources/gazer.png'));
   tokens.push(new Token('resources/gazer.png'));
+  tokens[1].x = 50;
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  imageMode(CENTER);
-  selectToken(tokens[0]);
+  imageMode(CORNER);
 }
 
 function mouseClicked() {
-  selectToken(tokens[1]);
+  tokens.forEach(token => {
+    if (token.mouseIsHovering()) {
+      token.select();
+    }
+  });
 }
 
 function draw() {
   background(100, 100, 100);
   image(mapImage, 200, 200);
-  selected.forEach(token => {
-    token.update();
-  });
   tokens.forEach(token => {
     token.render();
+    token.update();
   })
-}
-
-function selectToken(token) {
-  selected = [token];
 }
