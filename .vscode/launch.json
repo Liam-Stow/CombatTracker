@@ -8,6 +8,13 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
+            "name": "Launch index.html",
+            "file": "${workspaceFolder}/index.html"
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
             "preLaunchTask": "Run on Python",
             "name": "Firefox with python",
             "url": "localhost:8000",

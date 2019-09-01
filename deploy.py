@@ -2,7 +2,7 @@ from shutil import copy
 from distutils.dir_util import copy_tree
 
 destination = 'C:\inetpub\wwwroot'
-files = ['index.html', 'sketch.js', 'token.js']
+files = ['index.html', 'sketch.js', 'token.js', 'mouseManager.js']
 dirs = ['resources', 'lib']
 
 for source in files:
