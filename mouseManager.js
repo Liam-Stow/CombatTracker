@@ -12,8 +12,19 @@ class MouseManager {
         return MouseManager.instance;
     }
 
-    beginUpdate() {
+    consumeHover() {
+        this.hoverConsumed = true;
+    }
 
+    isHoveringOverToken(token) {
+        let hovering = (dist(mouseX, mouseY, token.x, token.y) < token.radius) && !this.hoverConsumed;
+        if (hovering) this.consumeHover();
+        return hovering;
+    }
+
+    beginUpdate() {
+        this.mouseIsPressed = mouseIsPressed;
+        this.hoverConsumed = false;
     }
 
     getMouseDown() {
@@ -21,15 +32,15 @@ class MouseManager {
     }
 
     getMouseDownStarted() {
-        return !this.prevMouseIsPressed && mouseIsPressed;
+        return !this.prevMouseIsPressed && this.mouseIsPressed;
     }
 
     getMouseReleased() {
-        return this.prevMouseIsPressed && !mouseIsPressed;
+        return this.prevMouseIsPressed && !this.mouseIsPressed;
     }
 
     getMouseStillDown() {
-        return this.prevMouseIsPressed && mouseIsPressed;
+        return this.prevMouseIsPressed && this.mouseIsPressed;
     }
 
     getMouseXOffset() {

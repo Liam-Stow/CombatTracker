@@ -11,7 +11,7 @@ class Token {
 
     update() {
         if (this.mouseManager.getMouseDownStarted()) {
-            if (this.mouseIsHovering()) {
+            if (this.mouseManager.isHoveringOverToken(this)) {
                 this.select();
             } else {
                 this.deselect();
@@ -26,32 +26,22 @@ class Token {
 
     select() {
         this.selected = true;
-        console.log('selected');
     }
   
     deselect() {
         this.selected = false;
     }
 
-    mouseIsHovering() {
-        return (dist(mouseX, mouseY, this.x, this.y) < this.radius);
+    setPosition(x, y) {
+        this.x = x;
+        this.y = y;
     }
 
     render() {
-        image(this.texture, 
-              this.x, 
-              this.y, 
-              2*this.radius, 
-              2*this.radius
-             );
-
+        image(this.texture, this.x, this.y, 2*this.radius, 2*this.radius);
         if (this.selected) {
             noFill()
-            rect(this.x,
-                 this.y, 
-                 2*this.radius + this.selectionPadding, 
-                 2*this.radius + this.selectionPadding
-                );
+            rect(this.x, this.y, 2*this.radius + this.selectionPadding, 2*this.radius + this.selectionPadding);
         }
     }
 }
