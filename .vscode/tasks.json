@@ -15,6 +15,20 @@
                 // Reveal the output only if unrecognized errors occur.
                 "reveal": "silent"
             }
+        },
+        {
+            "label": "Run on Python",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-m",
+                "SimpleHTTPServer"
+            ],
+            "group":"build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            }
         }
     ]
 }

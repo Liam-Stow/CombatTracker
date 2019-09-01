@@ -8,15 +8,17 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "name": "Launch firefox",
-            "file": "${workspaceFolder}/index.html"
+            "preLaunchTask": "Run on Python",
+            "name": "Firefox with python",
+            "url": "localhost:8000",
+            "webRoot": "${workspaceFolder}"
         },
 
         {
             "type": "chrome",
             "request": "launch",
             "preLaunchTask": "Deploy to server",
-            "name": "Launch Chrome against localhost",
+            "name": "Chrome with inetpub",
             "url": "http://localhost"
         }
     ]
